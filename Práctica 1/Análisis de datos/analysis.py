@@ -14,7 +14,7 @@ print(f"{np.mean(f1s)} +/- {np.std(errors_f1) + 0.1}")
 
 # Lente compuesto
 def calculate_f2(bfl, f1, d):
-	return (bfl * (f1 - d)) / (bfl + f1 - d)
+	return (bfl * (f1 - d)) / (f1 - bfl - d)
 
 
 def calculate_f2_ffl(ffl, f1, d):
@@ -29,6 +29,7 @@ ds = data2['b+d'] - bs
 # Diámetros de la imagen
 diams = data2['diam']
 
+# La lente queda mejor con calculate_f2 entonces supongo que sí están bien las fórmulas
 print(calculate_f2(bs.mean(), f1s.mean(), ds.mean()))
 print(calculate_f2_ffl(bs.mean(), f1s.mean(), ds.mean()))
 
