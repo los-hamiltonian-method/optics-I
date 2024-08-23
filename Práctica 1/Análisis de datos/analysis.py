@@ -21,6 +21,7 @@ def calculate_f2_ffl(ffl, f1, d):
 	return (f1 * (d + ffl) - ffl * d) / (f1 - ffl)
 
 
+# Lente compuesto D = 58.4
 data2 = pd.read_csv('len_compuesto.csv')
 # b es back focal length (bfl)
 bs = (data2['b_i'] + data2['b_d']) / 2
@@ -28,10 +29,8 @@ bs = (data2['b_i'] + data2['b_d']) / 2
 ds = data2['b+d'] - bs
 # Diámetros de la imagen
 diams = data2['diam']
+print(ds.mean())
 
 # La lente queda mejor con calculate_f2 entonces supongo que sí están bien las fórmulas
 print(calculate_f2(bs.mean(), f1s.mean(), ds.mean()))
 print(calculate_f2_ffl(bs.mean(), f1s.mean(), ds.mean()))
-
-
-# Lente compuesto D = 58.4
